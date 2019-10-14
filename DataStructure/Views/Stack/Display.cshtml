@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Display";
+}
+
+@if (ViewBag.myData != null)
+{
+    foreach (string sData in ViewBag.myData)
+    {
+        <p>@sData</p>
+    }
+}
+else
+{
+    <p>There's no data</p>
+}
+
