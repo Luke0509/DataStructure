@@ -17,12 +17,14 @@ namespace DataStructure.Controllers
             ViewBag.myData = myStack;
             return View();
         }
+        //incrementally adds an item to the stack
         public ActionResult addOne()
         {
             myStack.Push("New Entry " + (myStack.Count + 1));
             ViewBag.myData = myStack;
             return View("Index");
         }
+        //adds 2000 items to the stack 
         public ActionResult hugeList()
         {
             myStack.Clear();
@@ -33,17 +35,27 @@ namespace DataStructure.Controllers
             ViewBag.myData = myStack;
             return View("Index");
         }
+        //puts stack into viewbag to display it
         public ActionResult display()
         {
             ViewBag.myData = myStack;
 
             return View("Display");
         }
+        //if stack has items, delete one. if not, inform the user
         public ActionResult delete()
         {
-            //if statement if there is an item, pop return index
+            if (myStack.Any())
+            {
+                myStack.Pop();
+            }
+            else
+            {
+                ViewBag.Message = "There were no items to delete!";
+            }
             return View("Index");
         }
+        //removes all items from the stack
         public ActionResult clear()
         {
             myStack.Clear();
@@ -52,7 +64,7 @@ namespace DataStructure.Controllers
         }
         public ActionResult search()
         {
-            string searchVar = "New Entry 420";
+            string searchVar = "New Entry 40";
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             TimeSpan ts;
             sw.Start();
@@ -66,7 +78,7 @@ namespace DataStructure.Controllers
                     {
                         sw.Stop();
                         ts = sw.Elapsed;
-                        ViewBag.StopWatch = ts;
+                        ViewBag.Message = ts + " to find the item";
                         bFound = true;
                         iCount = myStack.Count();
                     }
@@ -75,7 +87,7 @@ namespace DataStructure.Controllers
                 {
                     sw.Stop();
                     ts = sw.Elapsed;
-                    ViewBag.StopWatch = ts;
+                    ViewBag.Message = ts;
                 }
                 
             }
