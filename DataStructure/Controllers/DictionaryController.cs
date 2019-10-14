@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace DataStructure.Controllers
 {
-    
     public class DictionaryController : Controller
     {
         // GET: Dictionary
