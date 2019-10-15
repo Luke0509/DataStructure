@@ -33,6 +33,7 @@ namespace DataStructure.Controllers
                 myStack.Push("New Entry " + (myStack.Count + 1));
             }
             ViewBag.myData = myStack;
+            ViewBag.Message = "2000 items added to stack!";
             return View("Index");
         }
         //puts stack into viewbag to display it

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <a href="@Url.Action("addOne", "Queue")" class="w3-bar-item w3-button">1. Add one time to Queue</a><br />
+    <a href="@Url.Action("hugeList", "Queue")" class="w3-bar-item w3-button">2. Add Huge List of Items to Queue</a><br />
+    <a href="@Url.Action("display", "Queue")" class="w3-bar-item w3-button">3. Display Queue</a><br />
+    <a href="@Url.Action("delete", "Queue")" class="w3-bar-item w3-button">4. Delete from Queue</a><br />
+    <a href="@Url.Action("clear", "Queue")" class="w3-bar-item w3-button">5. Clear Queue</a><br />
+    <a href="@Url.Action("search", "Queue")" class="w3-bar-item w3-button">6. Search Queue</a><br />
+    <a href="@Url.Action("goToMain", "Queue")" class="w3-bar-item w3-button">7. Return to Main Menu</a><br />
+    @ViewBag.Message
+</div>
