@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Display";
+}
+@if (ViewBag.myData.Count != 0)
+{
+    foreach (KeyValuePair<int, string> sData in ViewBag.myData)//print each key value pair
+    {
+        <p>@sData</p>
+    }
+}
+else //if it's empty, display error
+{
+    <p>There's no data!</p>
+}

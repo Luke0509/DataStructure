@@ -12,12 +12,15 @@ namespace DataStructure.Controllers
         {
             return View();
         }
+        //adds one item to the queue
         public ActionResult addOne()
         {
             myQueue.Enqueue("New Entry " + (myQueue.Count + 1));
             ViewBag.myData = myQueue;
+            ViewBag.Message = "One item added successfully!";
             return View("Index");
         }
+        //add 2000 items to the queue and tells the user it was successful
         public ActionResult hugeList()
         {
             myQueue.Clear();
@@ -29,16 +32,19 @@ namespace DataStructure.Controllers
             ViewBag.Message = "2000 items added to queue!";
             return View("Index");
         }
+        //displays all entries in the queue
         public ActionResult display()
         {
             ViewBag.myData = myQueue;
             return View("Display");
         }
+        //deletes an item from queue or tells user there are none to delete
         public ActionResult delete()
         {
             if (myQueue.Any())
             {
                 myQueue.Dequeue();
+                ViewBag.Message = "One item deleted!";
             }
             else
             {
@@ -46,12 +52,15 @@ namespace DataStructure.Controllers
             }
             return View("Index");
         }
+        //clears all items from the queue
         public ActionResult clear()
         {
             myQueue.Clear();
             ViewBag.myData = myQueue;
+            ViewBag.Message = "Queue cleared.";
             return View("Index");
         }
+        //searches queue for hard coded number and posts time it took to find it if it is there
         public ActionResult search()
         {
             string searchVar = "New Entry 40";
@@ -61,9 +70,9 @@ namespace DataStructure.Controllers
             Boolean bFound = false;
             if (myQueue.Count > 0)
             {
-                for (int iCount = 0; iCount < myQueue.Count(); iCount++)
+                for (int iCount = 0; iCount < myQueue.Count(); iCount++) //loop through queue
                 {
-                    if (myQueue.ElementAt(iCount) == searchVar)
+                    if (myQueue.ElementAt(iCount) == searchVar) //compare current value in queue to hard coded value
                     {
                         sw.Stop();
                         ts = sw.Elapsed;
@@ -76,12 +85,16 @@ namespace DataStructure.Controllers
                 {
                     sw.Stop();
                     ts = sw.Elapsed;
-                    ViewBag.Message = ts;
+                    ViewBag.Message = ts + " has elapsed, and the item was not found";
                 }
             }
-            //use ElementAt for searching
+            else
+            {
+                ViewBag.Message = "The Queue is empty. Nothing to search";
+            }
             return View("Index");
         }
+        //return to main menu
         public ActionResult goToMain()
         {
             return View("~/Views/Home/Index.cshtml");

@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Dictionary Index";
+}
+<a href="@Url.Action("addOne", "Dictionary")" class="w3-bar-item w3-button">1. Add One time to dictionary</a><br />
+<a href="@Url.Action("hugeList", "Dictionary")" class="w3-bar-item w3-button">2. Add huge list of items to dictionary</a><br />
+<a href="@Url.Action("display", "Dictionary")" class="w3-bar-item w3-button">3. Display dictionary</a><br />
+<a href="@Url.Action("delete", "Dictionary")" class="w3-bar-item w3-button">4. Delete from dictionary</a><br />
+<a href="@Url.Action("clear", "Dictionary")" class="w3-bar-item w3-button">5. Clear dictionary</a><br />
+<a href="@Url.Action("search", "Dictionary")" class="w3-bar-item w3-button">6. Search dictionary</a><br />
+<a href="@Url.Action("goToMain", "Dictionary")" class="w3-bar-item w3-button">7. Return to Main Menu</a><br />
+@ViewBag.Message
